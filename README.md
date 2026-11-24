@@ -1,6 +1,6 @@
 # Koopmans functionals: predicting spectra accurately and efficiently
 
-15-minute talk for [AMN12](https://amn12.nz), the 12th International
+15-minute talk for AMN12, the 12th International
 Conference on Advanced Materials and Nanotechnology, Tāmaki Makaurau
 Auckland, 8–12 February 2027.
 
