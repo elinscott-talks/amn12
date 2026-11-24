@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="sort-only" default-locale="en-GB">
   <info>
-    <title>Nature - modified by E Linscott for personal use</title>
+    <title>Nature, short form for slide footnotes (first author et al., no title) - E Linscott</title>
     <id>http://www.zotero.org/styles/nature</id>
     <link href="http://www.zotero.org/styles/nature" rel="self"/>
     <link href="http://www.nature.com/nature/authors/gta/index.html#a5.4" rel="documentation"/>
@@ -99,13 +99,17 @@
       <else-if type="report webpage post post-weblog" match="any">
         <group delimiter=" ">
           <text variable="URL"/>
+          <text variable="note"/>
           <date date-parts="year" form="text" variable="issued" prefix="(" suffix=")"/>
         </group>
       </else-if>
       <else>
-        <date variable="issued" prefix="(" suffix=")">
-          <date-part name="year"/>
-        </date>
+        <group delimiter=" ">
+          <text variable="note"/>
+          <date variable="issued" prefix="(" suffix=")">
+            <date-part name="year"/>
+          </date>
+        </group>
       </else>
     </choose>
   </macro>
@@ -163,11 +167,10 @@
       </group>
     </layout>
   </citation>
-  <bibliography et-al-min="6" et-al-use-first="1" entry-spacing="0" line-spacing="2">
+  <bibliography et-al-min="2" et-al-use-first="1" entry-spacing="0" line-spacing="2">
     <layout suffix=".">
       <group delimiter=" ">
         <text macro="author" suffix="."/>
-        <text macro="title" suffix="."/>
         <choose>
           <if type="chapter paper-conference" match="any">
             <text term="in"/>
