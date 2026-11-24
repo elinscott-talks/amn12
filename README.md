@@ -1,35 +1,38 @@
-# uc-slides-template
+# Koopmans functionals: predicting spectra accurately and efficiently
 
-Starter repository for a presentation using the **uc-slides** Typst theme,
-which reproduces the University of Canterbury "General" PowerPoint look.
-Click **Use this template** on GitHub to start a new talk from it.
+15-minute talk for [AMN12](https://amn12.nz), the 12th International
+Conference on Advanced Materials and Nanotechnology, Tāmaki Makaurau
+Auckland, 8–12 February 2027.
 
-## Getting the theme
+Edward Linscott, School of Physical and Chemical Sciences, University of
+Canterbury.
 
-The theme itself (`uc-slides`) is **not** in this repository and is not on
-Typst Universe: it carries the UC logo, which is a registered trademark, so
-it is shared privately with UC staff and students only. If you are at UC,
-email me at edward.linscott@canterbury.ac.nz and I'll give you access to the
-repository. Then, once per machine:
+## Building
 
-```sh
-git clone git@github.com:elinscott/uc-slides.git
-cd uc-slides && ./install.sh
-```
-
-This makes it available as `@local/uc-slides:0.1.0`, which `main.typ` imports.
-
-## Writing the talk
+The deck is written in [Typst](https://typst.app) using the
+[uc-slides](https://github.com/elinscott/uc-slides) theme (University of
+Canterbury template, shared privately; see
+[uc-slides-template](https://github.com/elinscott/uc-slides-template) for how
+to get access and install it as `@local/uc-slides:0.1.0`). Then:
 
 ```sh
-typst watch main.typ     # live-rebuilds main.pdf as you edit
-typst compile main.typ   # one-off build
+typst compile main.typ   # writes main.pdf
+typst watch main.typ     # rebuild on every save
 ```
 
-`main.typ` demonstrates every slide type; delete what you don't need. Put
-references in `references.bib` (citations appear as footnotes using the
-included `nature-footnote.csl`). `photo.jpg` is a placeholder; replace it
-with your own image.
+Arial is used if installed and Liberation Sans otherwise.
 
-For theme options and the full list of slide functions, see the uc-slides
-README once you have access.
+## Layout
+
+- `main.typ`: the slides. Figures are sized by height so that each slide,
+  with its footnote citations, fits on one page; slides are non-breakable
+  except the References slide.
+- `figures/`, `media/`: images, mostly carried over from the Psi-k 2025 and
+  LMS Showcase 2026 talks.
+- `references.bib`: bibliography.
+- `nature-footnote.csl`: short style for the per-slide footnote citations
+  (first author et al., journal, volume, page, year).
+- `nature.csl`: full style for the References slide.
+
+Citations appear as unnumbered footnotes, joined on one line per slide; the
+References slide at the end lists them in full.
