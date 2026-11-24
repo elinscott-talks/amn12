@@ -30,9 +30,7 @@ Arial is used if installed and Liberation Sans otherwise.
 - `figures/`, `media/`: images, mostly carried over from the Psi-k 2025 and
   LMS Showcase 2026 talks.
 - `references.bib`: bibliography.
-- `nature-footnote.csl`: short style for the per-slide footnote citations
-  (first author et al., journal, volume, page, year).
-- `nature.csl`: full style for the References slide.
 
-Citations appear as unnumbered footnotes, joined on one line per slide; the
-References slide at the end lists them in full.
+Citations appear as unnumbered footnotes, joined on one line per slide, in a
+short style (first author et al., journal, volume, page, year); the References
+slide at the end lists them in full. Both styles come with the theme.

@@ -18,35 +18,12 @@
     date: [AMN12, Tāmaki Makaurau Auckland, February 2027],
   ),
   config-common(
-    show-bibliography-as-footnote: true,
-    footnote-style: it => none, // no citation marker in the text ...
     breakable: false, // never spill a slide onto an extra page
     detect-overflow: false, // its measurement pass does not converge with mannot's annotations
   ),
 )
 
-// ... and the footnotes themselves unnumbered and run together on one line,
-// separated by semicolons: the first footnote on a page renders every
-// footnote of that page, the rest render nothing.
-#set footnote.entry(clearance: 0em, gap: 0em)
-#show footnote.entry: it => context {
-  let page = it.note.location().page()
-  let notes = query(footnote).filter(f => f.location().page() == page and type(f.body) != label)
-  if notes.first().location() == it.note.location() {
-    notes.map(f => f.body).join([; ])
-  }
-}
-
-// Footnote citations use the short style (first author et al., no title).
-// A citation binds to the next `bibliography` after it, so a hidden short-style
-// bibliography sits at the top of the References slide and the visible one
-// there uses the full style; see that slide.
-#set bibliography(title: none)
-
 #let red = uc-colors.red
-
-// Small grey caption, optionally with citations, centred under a figure
-#let caption(body) = align(center, text(size: 0.8em, fill: uc-colors.grey, body))
 
 #title-slide()
 
@@ -298,9 +275,5 @@ Koopmans functionals enforce piecewise linearity, turning DFT into a predictive 
 // the only slide allowed to run over several pages
 #slide(config: config-common(breakable: true))[
   #set text(size: 0.6em)
-  // short-style bibliography that the footnotes bind to (takes no space)
-  #place(hide(bibliography("references.bib", style: "nature-footnote.csl")))
-  // re-cite everything cited so far (invisibly) so it binds to the full-style list below
-  #context for key in magic.bibliography-visited.final() { cite(key, form: none) }
-  #bibliography("references.bib", style: "nature.csl")
+  #uc-bibliography(read("references.bib"))
 ]
